@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import * as CC from '../../components/context'
 import * as CS from '../../components/structure'
@@ -8,6 +8,7 @@ import { dynamicFormatCNPJ } from '../../utils/cnpj'
 import * as S from './styles'
 
 export const Company = () => {
+  const navigate = useNavigate()
   const { companyId } = useParams()
   const { loading, selectedCompany, company, fetchCompany } =
     useCompaniesContext()
@@ -26,6 +27,7 @@ export const Company = () => {
         ) : (
           !!company && (
             <S.Content width={900} height={500}>
+              <CS.Button onClick={() => navigate('/')} />
               <S.Row>
                 <S.Title>{company.name}</S.Title>
               </S.Row>

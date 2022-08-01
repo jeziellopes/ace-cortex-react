@@ -10,8 +10,8 @@ export type Props = {
 export const Container = styled.div`
   align-items: center;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
+  justify-content: center;
   padding: 40px 0;
   width: 100vw;
 `
@@ -28,6 +28,7 @@ export const Content = styled.div<Props>`
     justify-content: flex-start;
     margin: 16px 0;
     padding: 24px;
+    position: relative;
     position: relative;
     width: ${`${width}px` || 'auto'};
   `}
