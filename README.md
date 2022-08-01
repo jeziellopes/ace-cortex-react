@@ -2,7 +2,7 @@
 
 **Ace Cortex App** is a **React** App with **TypeScript**, **ESLint**, **Prettier** and **Styled-Components**.
 
----
+![Screen](./screen.png)
 
 ## Non-Functional Requirements
 
@@ -19,8 +19,6 @@
 - Create detailed company view
 - Bonus:
   - Replace cards pagination with infinite scroll
-
----
 
 ## How to start locally
 

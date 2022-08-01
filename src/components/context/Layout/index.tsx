@@ -7,9 +7,10 @@ import * as S from './styles'
 
 type Props = {
   children: React.ReactNode
+  withSearch?: boolean
 }
 
-export const Layout = ({ children }: Props) => {
+export const Layout = ({ children, withSearch }: Props) => {
   const navigate = useNavigate()
   const { search, onChange } = useCompaniesContext()
 
@@ -17,7 +18,7 @@ export const Layout = ({ children }: Props) => {
     <S.Container>
       <CS.Navbar>
         <CS.Logo onClick={() => navigate('/')} />
-        <CS.Search value={search} onChange={onChange} />
+        {withSearch && <CS.Search value={search} onChange={onChange} />}
         <CS.User />
       </CS.Navbar>
       <S.Content>{children}</S.Content>
