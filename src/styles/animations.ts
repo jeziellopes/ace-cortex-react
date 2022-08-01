@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css, Keyframes, keyframes } from 'styled-components'
 
 /**
  * Default fade animations for the project
@@ -19,7 +19,7 @@ export const fadeAnimations = css`
  */
 export const scaleAnimations = css`
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     transition: transform 0.2s;
   }
 `
@@ -28,12 +28,10 @@ export const scaleAnimations = css`
  * Default shadow animations for the project
  */
 export const shadowAnimations = css`
-  box-shadow: 0px 0px 0px 0px #581d8a;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.15s ease;
+  box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.25);
 
   &:hover {
-    box-shadow: 4px 4px 0px #ad88e5;
-    transform: translate(-2px, -2px);
+    box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.25);
   }
 `
 
@@ -43,7 +41,7 @@ export const shadowAnimations = css`
 export const colorAnimations = css`
   border-color: #581d8a;
   box-shadow: 0px 0px 0px 0px #581d8a;
-  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.15s ease;
+  transition: border 0.15s ease;
 
   &:hover {
     border: 2px solid;
@@ -51,5 +49,19 @@ export const colorAnimations = css`
 
   &:focus {
     border: 2px solid;
+  }
+`
+
+/**
+ * Default spin animations for the project
+ */
+
+export const spin: Keyframes = keyframes`
+  from {
+    transform:rotate(0deg);
+  }
+
+  to {
+    transform:rotate(360deg);
   }
 `
