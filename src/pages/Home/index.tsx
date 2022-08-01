@@ -13,7 +13,7 @@ export const Home = () => {
   const { loader } = useInfiniteScroll({ callback: fetchCompanies, loading })
 
   return (
-    <Layout>
+    <Layout withSearch>
       <CS.Grid>
         {companies
           .filter(
