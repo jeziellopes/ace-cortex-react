@@ -1,23 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 
 import { Company } from '../types'
 import { loadCompanies, showCompany } from '../useCases'
 
 export const useCompanies = () => {
-  const [loading, setLoading] = useState<boolean>(true)
+  const [loading, setLoading] = useState<boolean>(false)
   const [selectedCompany, setSelectedCompany] = useState('')
   const [company, setCompany] = useState<Company | null>(null)
   const [companies, setCompanies] = useState<Company[]>([] as Company[])
+  const [nextId, setNextId] = useState<number>(0)
 
-  const fetchCompanies = async () => {
+  const fetchCompanies = useCallback(async () => {
     setLoading(true)
-    const companies = await loadCompanies()
+    const { data } = await loadCompanies({ limit: 8, cursor: nextId })
 
-    if (companies.data) {
-      setCompanies(companies.data)
+    if (data.companies) {
+      setCompanies((prev) => [...prev, ...data.companies])
+      setNextId(data.nextId)
       setLoading(false)
     }
-  }
+  }, [nextId])
 
   const fetchCompany = async (companyId: string) => {
     setLoading(true)
@@ -39,8 +41,10 @@ export const useCompanies = () => {
   return {
     loading,
     companies,
+    nextId,
     company,
     fetchCompany,
     selectedCompany,
+    fetchCompanies,
   }
 }
