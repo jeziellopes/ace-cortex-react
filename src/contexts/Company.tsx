@@ -12,6 +12,7 @@ export type ContextType = {
   search: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   fetchCompany: (companyId: string) => void
+  fetchCompanies: () => void
 }
 
 export const CompaniesContext = createContext<ContextType>({
@@ -22,6 +23,7 @@ export const CompaniesContext = createContext<ContextType>({
   search: '',
   onChange: () => undefined,
   fetchCompany: () => undefined,
+  fetchCompanies: () => undefined,
 })
 
 export type ReactProps = {
@@ -30,8 +32,14 @@ export type ReactProps = {
 
 export const CompaniesProvider = ({ children }: ReactProps) => {
   const { search, onChange } = useSearch()
-  const { loading, selectedCompany, company, fetchCompany, companies } =
-    useCompanies()
+  const {
+    loading,
+    selectedCompany,
+    company,
+    fetchCompany,
+    companies,
+    fetchCompanies,
+  } = useCompanies()
 
   return (
     <CompaniesContext.Provider
@@ -43,6 +51,7 @@ export const CompaniesProvider = ({ children }: ReactProps) => {
         company,
         fetchCompany,
         selectedCompany,
+        fetchCompanies,
       }}
     >
       {children}

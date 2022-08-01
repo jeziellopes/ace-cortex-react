@@ -4,8 +4,7 @@ import { spin } from '../../../styles/animations'
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  height: 30vh;
+  height: 20vh;
   justify-content: center;
 
   svg {
@@ -13,7 +12,7 @@ export const Container = styled.div`
     animation-iteration-count: infinite;
     animation-name: ${spin};
     animation-timing-function: linear;
-    height: 48px;
-    width: 48px;
+    height: 32px;
+    width: 32px;
   }
 `
