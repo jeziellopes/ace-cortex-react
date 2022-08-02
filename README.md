@@ -23,11 +23,11 @@
 ## How to start locally
 
 ```bash
-  # Install dependencies
-  yarn
-
   # Change to develop branch
   git checkout develop
+
+  # Install dependencies
+  yarn
 
   # Generate .env
   yarn env:copy
